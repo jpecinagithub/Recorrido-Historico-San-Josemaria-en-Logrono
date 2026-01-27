@@ -10,7 +10,7 @@ import { componentTagger } from "lovable-tagger";
  * https://jpecinagithub.github.io/Recorrido-Historico-San-Josemaria-en-Logrono/#/  ->
  * repoName = "Recorrido-Historico-San-Josemaria-en-Logrono"
  */
-const repoName = "Recorrido-Historico-San-Josemaria-en-Basbastro";
+const repoName = "Recorrido-Historico-San-Josemaria-en-Logrono";
 
 export default defineConfig(({ mode }) => ({
   // GitHub Pages necesita el base con el nombre del repo
