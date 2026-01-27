@@ -1,0 +1,367 @@
+export interface QuizQuestion {
+  id: number;
+  question: string;
+  options: string[];
+  correctAnswer: number;
+  explanation: string;
+}
+
+export const QUIZ_QUESTIONS_POOL: QuizQuestion[] = [
+  {
+    id: 1,
+    question: "¿En qué año llegó San Josemaría Escrivá a Logroño con su familia?",
+    options: ["1913", "1915", "1917", "1920"],
+    correctAnswer: 1,
+    explanation: "La familia Escrivá se trasladó a Logroño en 1915, cuando Josemaría tenía 13 años."
+  },
+  {
+    id: 2,
+    question: "¿Cuántos años tenía San Josemaría cuando llegó a Logroño?",
+    options: ["11 años", "13 años", "15 años", "17 años"],
+    correctAnswer: 1,
+    explanation: "Josemaría nació en 1902, por lo que al llegar a Logroño en 1915 tenía 13 años."
+  },
+  {
+    id: 3,
+    question: "¿En qué instituto cursó San Josemaría el bachillerato?",
+    options: ["Instituto Cervantes", "Instituto Sagasta", "Instituto Rioja", "Instituto San Fernando"],
+    correctAnswer: 1,
+    explanation: "San Josemaría estudió en el prestigioso Instituto Sagasta de Logroño."
+  },
+  {
+    id: 4,
+    question: "¿Qué vio San Josemaría en la nieve que marcó su vocación?",
+    options: ["Una cruz", "Huellas de un carmelita descalzo", "Una imagen de la Virgen", "Un libro de oraciones"],
+    correctAnswer: 1,
+    explanation: "En el invierno de 1917-1918, vio las huellas de un carmelita descalzo en la nieve, lo que le impresionó profundamente."
+  },
+  {
+    id: 5,
+    question: "¿Cómo se llamaba el establecimiento comercial donde trabajó el padre de San Josemaría?",
+    options: ["El Corte Riojano", "La Gran Ciudad de Londres", "Almacenes Modernos", "Casa Sagasta"],
+    correctAnswer: 1,
+    explanation: "José Escrivá trabajó en 'La Gran Ciudad de Londres', un comercio de telas de Antonio Garrigosa."
+  },
+  {
+    id: 6,
+    question: "¿En qué seminario comenzó San Josemaría su formación sacerdotal?",
+    options: ["Seminario de Pamplona", "Seminario de Burgos", "Seminario Conciliar de Logroño", "Seminario de Zaragoza"],
+    correctAnswer: 2,
+    explanation: "Comenzó su formación en el Seminario Conciliar de Logroño antes de trasladarse a Zaragoza."
+  },
+  {
+    id: 7,
+    question: "¿Cuál es el nombre de la concatedral de Logroño?",
+    options: ["Santa María la Mayor", "Santa María de la Redonda", "Nuestra Señora del Pilar", "San Lorenzo"],
+    correctAnswer: 1,
+    explanation: "La Concatedral de Santa María de la Redonda es el templo principal de Logroño."
+  },
+  {
+    id: 8,
+    question: "¿Hasta qué año aproximadamente permaneció la familia de San Josemaría vinculada a Logroño?",
+    options: ["1920", "1923", "1925", "1928"],
+    correctAnswer: 2,
+    explanation: "La familia Escrivá estuvo vinculada a Logroño hasta aproximadamente 1925."
+  },
+  {
+    id: 9,
+    question: "¿Cuántas hermanas tuvo San Josemaría que fallecieron siendo niñas?",
+    options: ["Una", "Dos", "Tres", "Ninguna"],
+    correctAnswer: 2,
+    explanation: "Tres de sus hermanas (Rosario, Lolita y Asunción) fallecieron siendo niñas, tragedias que marcaron a la familia."
+  },
+  {
+    id: 10,
+    question: "¿Junto a qué río importante se encuentra Logroño?",
+    options: ["Río Duero", "Río Tajo", "Río Ebro", "Río Guadalquivir"],
+    correctAnswer: 2,
+    explanation: "Logroño se encuentra junto al río Ebro, el río más caudaloso de España."
+  },
+  {
+    id: 11,
+    question: "¿En qué ciudad nació San Josemaría Escrivá?",
+    options: ["Logroño", "Barbastro", "Zaragoza", "Madrid"],
+    correctAnswer: 1,
+    explanation: "San Josemaría nació en Barbastro (Huesca) el 9 de enero de 1902."
+  },
+  {
+    id: 12,
+    question: "¿Cómo se llamaba la madre de San Josemaría?",
+    options: ["Carmen Albás", "María Dolores Albás", "Josefa Escrivá", "Pilar Sánchez"],
+    correctAnswer: 1,
+    explanation: "Su madre se llamaba María Dolores Albás Blanc, conocida como Dolores."
+  },
+  {
+    id: 13,
+    question: "¿Cómo se llamaba el padre de San Josemaría?",
+    options: ["José Escrivá", "Josemaría Escrivá", "Antonio Escrivá", "Manuel Escrivá"],
+    correctAnswer: 0,
+    explanation: "Su padre era José Escrivá y Corzán, comerciante de profesión."
+  },
+  {
+    id: 14,
+    question: "¿En qué calle de Logroño vivió la familia Escrivá?",
+    options: ["Calle Portales", "Calle Sagasta", "Calle Laurel", "Calle San Antón"],
+    correctAnswer: 1,
+    explanation: "La familia Escrivá vivió en la Calle Canalejas, muy cerca del centro de Logroño."
+  },
+  {
+    id: 15,
+    question: "¿Qué orden religiosa influyó en la vocación de San Josemaría al ver sus huellas en la nieve?",
+    options: ["Franciscanos", "Dominicos", "Carmelitas Descalzos", "Jesuitas"],
+    correctAnswer: 2,
+    explanation: "Las huellas de un carmelita descalzo en la nieve le impresionaron profundamente."
+  },
+  {
+    id: 16,
+    question: "¿En qué año fue el famoso invierno donde San Josemaría vio las huellas en la nieve?",
+    options: ["1915-1916", "1916-1917", "1917-1918", "1918-1919"],
+    correctAnswer: 2,
+    explanation: "Fue durante el crudo invierno de 1917-1918 cuando tuvo esta experiencia."
+  },
+  {
+    id: 17,
+    question: "¿Qué fundó San Josemaría Escrivá?",
+    options: ["Los Jesuitas", "El Opus Dei", "Los Legionarios de Cristo", "Los Carmelitas"],
+    correctAnswer: 1,
+    explanation: "San Josemaría fundó el Opus Dei el 2 de octubre de 1928 en Madrid."
+  },
+  {
+    id: 18,
+    question: "¿En qué fecha fue canonizado San Josemaría?",
+    options: ["6 de octubre de 2002", "9 de enero de 2000", "26 de junio de 1975", "17 de mayo de 1992"],
+    correctAnswer: 0,
+    explanation: "Fue canonizado por el Papa Juan Pablo II el 6 de octubre de 2002 en Roma."
+  },
+  {
+    id: 19,
+    question: "¿Cuál era el nombre del hermano menor de San Josemaría?",
+    options: ["José", "Santiago", "Antonio", "Manuel"],
+    correctAnswer: 1,
+    explanation: "Su hermano menor se llamaba Santiago Escrivá, nacido en 1919 en Logroño."
+  },
+  {
+    id: 20,
+    question: "¿Qué profesión tenía el padre de San Josemaría en Logroño?",
+    options: ["Médico", "Abogado", "Comerciante de telas", "Profesor"],
+    correctAnswer: 2,
+    explanation: "José Escrivá trabajaba como comerciante de telas en La Gran Ciudad de Londres."
+  },
+  {
+    id: 21,
+    question: "¿Cuál era la parroquia de la familia Escrivá en Logroño?",
+    options: ["La Redonda", "Santiago el Real", "San Bartolomé", "Santa María de Palacio"],
+    correctAnswer: 1,
+    explanation: "La familia asistía regularmente a la Iglesia de Santiago el Real."
+  },
+  {
+    id: 22,
+    question: "¿Cuál es el nombre del puente histórico sobre el Ebro en Logroño?",
+    options: ["Puente de Piedra", "Puente de Hierro", "Puente Nuevo", "Puente Romano"],
+    correctAnswer: 1,
+    explanation: "El Puente de Hierro es un icónico puente del siglo XIX que cruza el Ebro."
+  },
+  {
+    id: 23,
+    question: "¿Qué característica arquitectónica distingue a la Concatedral de la Redonda?",
+    options: ["Su única torre", "Sus dos torres gemelas", "Su cúpula dorada", "Su campanario gótico"],
+    correctAnswer: 1,
+    explanation: "La Redonda es conocida por sus imponentes torres gemelas barrocas."
+  },
+  {
+    id: 24,
+    question: "¿En qué comunidad autónoma se encuentra Logroño?",
+    options: ["Navarra", "País Vasco", "La Rioja", "Aragón"],
+    correctAnswer: 2,
+    explanation: "Logroño es la capital de la comunidad autónoma de La Rioja."
+  },
+  {
+    id: 25,
+    question: "¿Por qué se trasladó la familia Escrivá de Barbastro a Logroño?",
+    options: ["Por motivos de salud", "Por la quiebra del negocio familiar", "Por estudios de Josemaría", "Por motivos religiosos"],
+    correctAnswer: 1,
+    explanation: "La familia tuvo que trasladarse tras la quiebra del negocio familiar en Barbastro."
+  },
+  {
+    id: 26,
+    question: "¿Qué hermana de San Josemaría nació en Logroño?",
+    options: ["Carmen", "Rosario", "Ninguna nació en Logroño", "Asunción"],
+    correctAnswer: 2,
+    explanation: "Solo su hermano Santiago nació en Logroño; Carmen era mayor y las otras fallecieron antes."
+  },
+  {
+    id: 27,
+    question: "¿Cuántos años vivió aproximadamente la familia de San Josemaría en Logroño?",
+    options: ["5 años", "10 años", "15 años", "20 años"],
+    correctAnswer: 1,
+    explanation: "Vivió en Logroño aproximadamente 10 años, desde 1915 hasta 1925."
+  },
+  {
+    id: 28,
+    question: "¿A qué universidad se trasladó San Josemaría para continuar sus estudios eclesiásticos?",
+    options: ["Universidad de Navarra", "Universidad de Salamanca", "Universidad Pontificia de Zaragoza", "Universidad de Madrid"],
+    correctAnswer: 2,
+    explanation: "Continuó su formación sacerdotal en el Seminario de San Francisco de Paula de Zaragoza."
+  },
+  {
+    id: 29,
+    question: "¿En qué año fue ordenado sacerdote San Josemaría?",
+    options: ["1923", "1925", "1928", "1930"],
+    correctAnswer: 1,
+    explanation: "Fue ordenado sacerdote el 28 de marzo de 1925 en Zaragoza."
+  },
+  {
+    id: 30,
+    question: "¿Qué festividad se celebra el día del nacimiento de San Josemaría (9 de enero)?",
+    options: ["Epifanía", "Bautismo del Señor", "Su fiesta litúrgica", "No hay festividad ese día"],
+    correctAnswer: 2,
+    explanation: "El 9 de enero es la fiesta litúrgica de San Josemaría en el calendario de la Iglesia."
+  },
+  {
+    id: 31,
+    question: "¿Cuál era el apodo cariñoso que usaban en familia para Josemaría?",
+    options: ["Pepe", "Mariano", "Josemaría no tenía apodo", "Mari"],
+    correctAnswer: 1,
+    explanation: "En familia le llamaban cariñosamente 'Mariano'."
+  },
+  {
+    id: 32,
+    question: "¿Qué asignatura destacaba especialmente San Josemaría en el Instituto Sagasta?",
+    options: ["Matemáticas", "Latín y Humanidades", "Ciencias Naturales", "Educación Física"],
+    correctAnswer: 1,
+    explanation: "Destacaba especialmente en Latín y las asignaturas de Humanidades."
+  },
+  {
+    id: 33,
+    question: "¿Qué título nobiliario ostentaba la familia Escrivá?",
+    options: ["Condes", "Marqueses", "Ninguno", "Barones"],
+    correctAnswer: 2,
+    explanation: "La familia Escrivá no tenía títulos nobiliarios, era una familia de comerciantes."
+  },
+  {
+    id: 34,
+    question: "¿Cuántos hermanos tuvo San Josemaría en total?",
+    options: ["3", "4", "5", "6"],
+    correctAnswer: 2,
+    explanation: "Tuvo 5 hermanos: Carmen (única superviviente), Rosario, Lolita, Asunción y Santiago."
+  },
+  {
+    id: 35,
+    question: "¿Qué plaza de Logroño era frecuentada por la familia Escrivá?",
+    options: ["Plaza del Mercado", "Plaza de España", "Plaza del Espolón", "Plaza de San Bartolomé"],
+    correctAnswer: 0,
+    explanation: "La Plaza del Mercado era un lugar habitual de paseo y comercio para la familia."
+  },
+  {
+    id: 36,
+    question: "¿Cuál era el producto principal de La Rioja que conoció San Josemaría?",
+    options: ["Aceite de oliva", "Vino", "Cereales", "Frutas"],
+    correctAnswer: 1,
+    explanation: "El vino es el producto más emblemático de La Rioja, región vinícola por excelencia."
+  },
+  {
+    id: 37,
+    question: "¿Qué camino de peregrinación atraviesa Logroño?",
+    options: ["Vía de la Plata", "Camino de Santiago", "Ruta Jacobea del Norte", "Camino del Cid"],
+    correctAnswer: 1,
+    explanation: "El Camino de Santiago atraviesa Logroño, siendo una etapa importante de la ruta."
+  },
+  {
+    id: 38,
+    question: "¿Qué edad tenía San Josemaría cuando sintió los primeros barruntos de su vocación?",
+    options: ["13-14 años", "15-16 años", "17-18 años", "19-20 años"],
+    correctAnswer: 1,
+    explanation: "Los primeros barruntos de su vocación surgieron cuando tenía 15-16 años, hacia 1917-1918."
+  },
+  {
+    id: 39,
+    question: "¿Cómo describía San Josemaría la experiencia de ver las huellas en la nieve?",
+    options: ["Con indiferencia", "Como un barrunto de amor", "Como una orden divina", "Con temor"],
+    correctAnswer: 1,
+    explanation: "Lo describía como 'barruntos de Amor', un presentimiento del amor divino."
+  },
+  {
+    id: 40,
+    question: "¿Qué significa 'barrunto' en el contexto de la vocación de San Josemaría?",
+    options: ["Orden directa", "Presentimiento o intuición", "Visión mística", "Mandato eclesiástico"],
+    correctAnswer: 1,
+    explanation: "Barrunto significa presentimiento o intuición, un atisbo de algo que vendrá."
+  },
+  {
+    id: 41,
+    question: "¿Qué montes se pueden ver desde Logroño?",
+    options: ["Los Pirineos", "Sierra de Cantabria", "Cordillera Ibérica", "Montes de León"],
+    correctAnswer: 1,
+    explanation: "Desde Logroño se divisa la Sierra de Cantabria al norte de la ciudad."
+  },
+  {
+    id: 42,
+    question: "¿Qué santo patrón tiene Logroño?",
+    options: ["San Bernabé", "Santiago Apóstol", "San Lorenzo", "San José"],
+    correctAnswer: 0,
+    explanation: "San Bernabé es el patrón de Logroño, celebrado el 11 de junio."
+  },
+  {
+    id: 43,
+    question: "¿Cuál era la situación económica de la familia Escrivá al llegar a Logroño?",
+    options: ["Muy próspera", "Modesta tras la quiebra", "De extrema pobreza", "De clase alta"],
+    correctAnswer: 1,
+    explanation: "Tras la quiebra en Barbastro, la familia vivía con modestia en Logroño."
+  },
+  {
+    id: 44,
+    question: "¿Qué iglesia de Logroño tiene un retablo con la imagen de San Josemaría?",
+    options: ["La Redonda", "Santiago el Real", "San Bartolomé", "Santa María de Palacio"],
+    correctAnswer: 1,
+    explanation: "La Iglesia de Santiago el Real tiene una imagen y placa conmemorativa de San Josemaría."
+  },
+  {
+    id: 45,
+    question: "¿En qué mes y día falleció San Josemaría Escrivá?",
+    options: ["9 de enero", "26 de junio", "6 de octubre", "2 de octubre"],
+    correctAnswer: 1,
+    explanation: "San Josemaría falleció el 26 de junio de 1975 en Roma."
+  },
+  {
+    id: 46,
+    question: "¿Cuál es el mensaje central del Opus Dei?",
+    options: ["Ora et labora", "Santificar el trabajo", "Ad maiorem Dei gloriam", "Deus caritas est"],
+    correctAnswer: 1,
+    explanation: "Su mensaje central era la santificación del trabajo ordinario."
+  },
+  {
+    id: 47,
+    question: "¿Qué libro escribió San Josemaría que se ha convertido en un clásico espiritual?",
+    options: ["Imitación de Cristo", "Camino", "Ejercicios Espirituales", "Introducción a la vida devota"],
+    correctAnswer: 1,
+    explanation: "'Camino' es su obra más conocida, con 999 puntos de meditación."
+  },
+  {
+    id: 48,
+    question: "¿Cuántas torres tiene la fachada principal de la Concatedral de la Redonda?",
+    options: ["Una", "Dos", "Tres", "Cuatro"],
+    correctAnswer: 1,
+    explanation: "La Redonda tiene dos torres gemelas en su fachada principal."
+  },
+  {
+    id: 49,
+    question: "¿Qué personaje histórico da nombre al instituto donde estudió San Josemaría?",
+    options: ["Cervantes", "Práxedes Mateo Sagasta", "Alfonso X", "El Cid"],
+    correctAnswer: 1,
+    explanation: "El instituto lleva el nombre de Práxedes Mateo Sagasta, político riojano del siglo XIX."
+  },
+  {
+    id: 50,
+    question: "¿Cuál fue la primera decisión que tomó San Josemaría tras sentir su vocación?",
+    options: ["Ingresar en un monasterio", "Hacerse sacerdote diocesano", "Irse de misionero", "Quedarse como laico"],
+    correctAnswer: 1,
+    explanation: "Decidió hacerse sacerdote diocesano para estar disponible a la voluntad de Dios."
+  }
+];
+
+export const QUIZ_QUESTIONS_COUNT = 10;
+
+export function getRandomQuestions(count: number = QUIZ_QUESTIONS_COUNT): QuizQuestion[] {
+  const shuffled = [...QUIZ_QUESTIONS_POOL].sort(() => Math.random() - 0.5);
+  return shuffled.slice(0, count);
+}
