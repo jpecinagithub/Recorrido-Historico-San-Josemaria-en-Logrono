@@ -26,7 +26,7 @@ export const POIS: POI[] = [
     title: "Seminario Conciliar",
     lat: 42.46551018864082,
     lng: -2.4457134197441577,
-    description: "Histórico seminario diocesano situado en la Avenida de la Paz. Lugar fundamental en la vocación sacerdotal de San Josemaría.",
+    description: "Histórico seminario diocesano. Lugar fundamental en la vocación sacerdotal de San Josemaría.",
     audioSrc: "/assets/audio/2-seminario-conciliar.mp3",
     imageSrc: "/assets/pois/seminario-conciliar.jpg"
   },
@@ -46,7 +46,7 @@ export const POIS: POI[] = [
     title: "Colegio San Antonio de Padua",
     lat: 42.466200399589134,
     lng: -2.4509217094468063,
-    description: "Institución educativa ubicada en la Carretera de Navarra. Colegio de los Escolapios donde San Josemaría recibió parte de su educación.",
+    description: "Institución educativa ubicada en la actual plaza de Alférez Provisional donde San Josemaría recibió parte de su educación.",
     audioSrc: "/assets/audio/4-san-antonio.mp3",
     imageSrc: "/assets/pois/san-antonio.jpg"
   },
@@ -106,7 +106,7 @@ export const POIS: POI[] = [
     title: "La Concatedral de La Redonda",
     lat: 42.46672739573979,
     lng: -2.4450058130298826,
-    description: "Concatedral de Santa María de la Redonda, símbolo arquitectónico de Logroño. Templo donde San Josemaría recibió sacramentos importantes.",
+    description: "Concatedral de Santa María de la Redonda, símbolo arquitectónico de Logroño.",
     audioSrc: "/assets/audio/10-concatedral.mp3",
     imageSrc: "/assets/album/foto12.jpg"
   }
