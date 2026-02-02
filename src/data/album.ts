@@ -25,7 +25,7 @@ export const ALBUM_PHOTOS: AlbumPhoto[] = [
     id: "img-25",
     src: "/assets/album/padres-josemaria-2.jpg",
     title: "Retrato de los padres",
-    description: "Retrato de perfil de José y Dolores Escrivá. Su ejemplo de fe y trabajo influyó decisivamente en la vocación de Josemaría.",
+    description: "Retrato de perfil de D. José Escrivá y Doña Dolores Albás. Su ejemplo de fe y trabajo influyó decisivamente en la vocación de Josemaría.",
     year: "1905"
   },
   {
@@ -33,20 +33,20 @@ export const ALBUM_PHOTOS: AlbumPhoto[] = [
     src: "/assets/album/foto3.jpg",
     title: "Los hermanos Escrivá",
     description: "Josemaría con hermanos Santiago y Carmen. La familia fue un pilar fundamental en su formación cristiana.",
-    year: "1906"
+    year: "1922"
   },
   {
     id: "img-27",
     src: "/assets/album/antonio-garrigosa.jpg",
     title: "Antonio Garrigosa Borrell",
-    description: "Antonio Garrigosa Borrell, comerciante y socio del padre de Josemaría en el negocio textil de Logroño.",
+    description: "Antonio Garrigosa Borrell, comerciante y jefe del padre de Josemaría en el negocio textil de Logroño.",
     year: "1915"
   },
   {
     id: "img-28",
     src: "/assets/album/antonio-garrigosa-tienda.webp",
     title: "Tienda de Antonio Garrigosa",
-    description: "La tienda de tejidos 'Antonio Garrigosa Borrell' en Logroño El cartel anunciaba 'Especialidad, Baratura y Buen Gusto'.",
+    description: "La tienda de tejidos 'La gran ciudad de Londre'. El cartel anunciaba 'Amabilidad, Baratura y Buen Gusto'.",
     year: "1915"
   },
   {
@@ -95,7 +95,7 @@ export const ALBUM_PHOTOS: AlbumPhoto[] = [
     id: "img-08",
     src: "/assets/album/foto18.webp",
     title: "Calle Sagasta",
-    description: "La emblemática Calle Sagasta de Logroño, centro neurálgico del comercio y la vida social de la ciudad en tiempos de la familia Escrivá.",
+    description: "La emblemática Calle Portales de Logroño, centro neurálgico del comercio y la vida social de la ciudad en tiempos de la familia Escrivá.",
     year: "1919"
   },
   {
@@ -103,7 +103,7 @@ export const ALBUM_PHOTOS: AlbumPhoto[] = [
     src: "/assets/album/foto20.jpg",
     title: "Calles del casco antiguo",
     description: "Las calles del casco histórico de Logroño, testigos de la juventud de San Josemaría y sus paseos por la ciudad.",
-    year: "1919"
+    year: "1960"
   },
   {
     id: "img-10",
@@ -166,7 +166,7 @@ export const ALBUM_PHOTOS: AlbumPhoto[] = [
     src: "/assets/album/carmelita-descalzo.jpg",
     title: "Padre José Miguel de la V. del Carmen",
     description: "El R.P. José Miguel de la V. del Carmen, carmelita descalzo cuyas huellas en la nieve inspiraron la vocación sacerdotal de Josemaría. Falleció en Oviedo el 23 de septiembre de 1942.",
-    year: "1940"
+    year: "1942"
   },
   {
     id: "img-26",
@@ -207,7 +207,7 @@ export const ALBUM_PHOTOS: AlbumPhoto[] = [
     id: "img-13",
     src: "/assets/album/foto12.jpg",
     title: "Concatedral de La Redonda",
-    description: "La Concatedral de Santa María de la Redonda, corazón espiritual de Logroño. La familia Escrivá asistía regularmente a misa en este templo.",
+    description: "La Concatedral de Santa María de la Redonda, corazón espiritual de Logroño.",
     year: "2020"
   },
   {
