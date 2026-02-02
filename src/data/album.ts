@@ -202,12 +202,5 @@ export const ALBUM_PHOTOS: AlbumPhoto[] = [
     title: "Concatedral de La Redonda",
     description: "La Concatedral de Santa María de la Redonda, corazón espiritual de Logroño.",
     year: "2020"
-  },
-  {
-    id: "img-22",
-    src: "/assets/album/iglesia-santiago-cuadro.jpg",
-    title: "Cuadro de San Josemaría en Santiago",
-    description: "Cuadro de San Josemaría Escrivá en la Iglesia de Santiago el Real de Logroño, parroquia donde la familia asistía a misa.",
-    year: "2020"
   }
 ];
