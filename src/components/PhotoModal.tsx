@@ -83,11 +83,11 @@ const PhotoModal = ({
             className="max-w-4xl w-full bg-card rounded-2xl overflow-hidden shadow-2xl"
           >
             {/* Image */}
-            <div className="relative aspect-[4/3] bg-muted">
+            <div className="relative bg-muted flex items-center justify-center min-h-[200px] max-h-[60vh]">
               <img
                 src={getAssetPath(photo.src)}
                 alt={photo.title}
-                className="w-full h-full object-cover"
+                className="max-w-full max-h-[60vh] object-contain"
               />
             </div>
             
