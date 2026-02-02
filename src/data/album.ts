@@ -85,13 +85,6 @@ export const ALBUM_PHOTOS: AlbumPhoto[] = [
     year: "1918"
   },
   {
-    id: "img-23",
-    src: "/assets/album/seminario-conciliar-historico.jpg",
-    title: "Seminario Conciliar - Foto histórica",
-    description: "Imagen histórica del Seminario Conciliar de Logroño, donde Josemaría ingresó tras sentir la llamada de Dios.",
-    year: "1918"
-  },
-  {
     id: "img-08",
     src: "/assets/album/foto18.webp",
     title: "Calle Sagasta",
