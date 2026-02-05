@@ -141,6 +141,13 @@ export const ALBUM_PHOTOS: AlbumPhoto[] = [
     year: "1925"
   },
   {
+    id: "img-32",
+    src: "/assets/album/seminario-1925.jpg",
+    title: "Josemaría en el Seminario (1925)",
+    description: "Josemaría Escrivá junto a compañeros del Seminario de San Carlos en Zaragoza, poco antes de su ordenación sacerdotal.",
+    year: "1925"
+  },
+  {
     id: "img-29",
     src: "/assets/album/ciriaco-gaztambide.jpg",
     title: "Ciriaco Garrido Lázaro",
@@ -153,13 +160,6 @@ export const ALBUM_PHOTOS: AlbumPhoto[] = [
     title: "Padre José Miguel de la V. del Carmen",
     description: "El R.P. José Miguel de la V. del Carmen, carmelita descalzo cuyas huellas en la nieve inspiraron la vocación sacerdotal de Josemaría. Falleció en Oviedo el 23 de septiembre de 1942.",
     year: "1942"
-  },
-  {
-    id: "img-31",
-    src: "/assets/album/libro-toldra-logrono.jpg",
-    title: "Libro 'Josemaría Escrivá en Logroño'",
-    description: "Portada del libro de Jaime Toldrà Parés sobre los años de San Josemaría en Logroño (1915-1925), publicado por el Instituto Histórico San Josemaría Escrivá y editorial Rialp.",
-    year: "2007"
   },
   {
     id: "img-26",
@@ -197,10 +197,31 @@ export const ALBUM_PHOTOS: AlbumPhoto[] = [
     year: "2002"
   },
   {
+    id: "img-31",
+    src: "/assets/album/libro-toldra-logrono.jpg",
+    title: "Libro 'Josemaría Escrivá en Logroño'",
+    description: "Portada del libro de Jaime Toldrà Parés sobre los años de San Josemaría en Logroño (1915-1925), publicado por el Instituto Histórico San Josemaría Escrivá y editorial Rialp.",
+    year: "2007"
+  },
+  {
+    id: "img-33",
+    src: "/assets/album/cuadro-isabel-guerra.jpg",
+    title: "Cuadro de Isabel Guerra",
+    description: "Cuadro de San Josemaría pintado por la artista Isabel Guerra, ubicado en la parroquia de Santiago el Real de Logroño.",
+    year: "2018"
+  },
+  {
     id: "img-13",
     src: "/assets/album/foto12.jpg",
     title: "Concatedral de La Redonda",
     description: "La Concatedral de Santa María de la Redonda, corazón espiritual de Logroño.",
     year: "2020"
+  },
+  {
+    id: "img-34",
+    src: "/assets/album/estampa-centenario-2025.jpg",
+    title: "Estampa del Centenario Sacerdotal",
+    description: "Estampa conmemorativa del centenario de la ordenación sacerdotal de San Josemaría (1925-2025), con una oración por las vocaciones sacerdotales.",
+    year: "2025"
   }
 ];
