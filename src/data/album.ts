@@ -29,13 +29,6 @@ export const ALBUM_PHOTOS: AlbumPhoto[] = [
     year: "1905"
   },
   {
-    id: "img-02",
-    src: "/assets/album/foto3.jpg",
-    title: "Los hermanos Escrivá",
-    description: "Josemaría con hermanos Santiago y Carmen. La familia fue un pilar fundamental en su formación cristiana.",
-    year: "1922"
-  },
-  {
     id: "img-27",
     src: "/assets/album/antonio-garrigosa.jpg",
     title: "Antonio Garrigosa Borrell",
@@ -92,13 +85,6 @@ export const ALBUM_PHOTOS: AlbumPhoto[] = [
     year: "1919"
   },
   {
-    id: "img-09",
-    src: "/assets/album/foto20.jpg",
-    title: "Calles del casco antiguo",
-    description: "Las calles del casco histórico de Logroño, testigos de la juventud de San Josemaría y sus paseos por la ciudad.",
-    year: "1960"
-  },
-  {
     id: "img-10",
     src: "/assets/album/foto4.jpg",
     title: "Seminarista en Logroño",
@@ -134,6 +120,13 @@ export const ALBUM_PHOTOS: AlbumPhoto[] = [
     year: "1921"
   },
   {
+    id: "img-02",
+    src: "/assets/album/foto3.jpg",
+    title: "Los hermanos Escrivá",
+    description: "Josemaría con hermanos Santiago y Carmen. La familia fue un pilar fundamental en su formación cristiana.",
+    year: "1922"
+  },
+  {
     id: "img-24",
     src: "/assets/album/padres-josemaria.jpg",
     title: "Los padres de Josemaría",
@@ -160,6 +153,13 @@ export const ALBUM_PHOTOS: AlbumPhoto[] = [
     title: "Padre José Miguel de la V. del Carmen",
     description: "El R.P. José Miguel de la V. del Carmen, carmelita descalzo cuyas huellas en la nieve inspiraron la vocación sacerdotal de Josemaría. Falleció en Oviedo el 23 de septiembre de 1942.",
     year: "1942"
+  },
+  {
+    id: "img-31",
+    src: "/assets/album/libro-toldra-logrono.jpg",
+    title: "Libro 'Josemaría Escrivá en Logroño'",
+    description: "Portada del libro de Jaime Toldrà Parés sobre los años de San Josemaría en Logroño (1915-1925), publicado por el Instituto Histórico San Josemaría Escrivá y editorial Rialp.",
+    year: "2007"
   },
   {
     id: "img-26",
