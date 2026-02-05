@@ -8,13 +8,6 @@ export interface AlbumPhoto {
 
 export const ALBUM_PHOTOS: AlbumPhoto[] = [
   {
-    id: "img-19",
-    src: "/assets/album/plano-logrono-1852.jpg",
-    title: "Plano de Logroño (1852)",
-    description: "Plano histórico de Logroño de 1852 mostrando el Seminario, el Instituto de 2ª Enseñanza y el ex-convento de Carmelitas.",
-    year: "1852"
-  },
-  {
     id: "img-01",
     src: "/assets/album/foto10.jpg",
     title: "Josemaría de niño",
