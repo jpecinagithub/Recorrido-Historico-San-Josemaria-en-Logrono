@@ -211,13 +211,6 @@ export const ALBUM_PHOTOS: AlbumPhoto[] = [
     year: "2018"
   },
   {
-    id: "img-13",
-    src: "/assets/album/foto12.jpg",
-    title: "Concatedral de La Redonda",
-    description: "La Concatedral de Santa María de la Redonda, corazón espiritual de Logroño.",
-    year: "2020"
-  },
-  {
     id: "img-34",
     src: "/assets/album/estampa-centenario-2025.jpg",
     title: "Estampa del Centenario Sacerdotal",
