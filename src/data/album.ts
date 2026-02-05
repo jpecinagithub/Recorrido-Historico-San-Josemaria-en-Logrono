@@ -143,9 +143,9 @@ export const ALBUM_PHOTOS: AlbumPhoto[] = [
   {
     id: "img-32",
     src: "/assets/album/seminario-1925.jpg",
-    title: "Josemaría en el Seminario (1925)",
-    description: "Josemaría Escrivá junto a compañeros del Seminario de San Carlos en Zaragoza, poco antes de su ordenación sacerdotal.",
-    year: "1925"
+    title: "Josemaría en el Seminario (1922)",
+    description: "Josemaría Escrivá junto a compañeros del Seminario de San Carlos en Zaragoza.",
+    year: "1922"
   },
   {
     id: "img-29",
@@ -174,6 +174,13 @@ export const ALBUM_PHOTOS: AlbumPhoto[] = [
     title: "San Josemaría",
     description: "San Josemaría Escrivá de Balaguer, fundador del Opus Dei. Fue canonizado por el Papa Juan Pablo II el 6 de octubre de 2002.",
     year: "1970"
+  },
+  {
+    id: "img-35",
+    src: "/assets/album/caras-san-josemaria.jpg",
+    title: "Rostros de San Josemaría",
+    description: "Evolución del rostro de San Josemaría Escrivá a lo largo de su vida, desde su juventud hasta sus últimos años. Falleció el 26 de junio de 1975 en Roma.",
+    year: "1975"
   },
   {
     id: "img-14",
