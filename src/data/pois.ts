@@ -44,8 +44,8 @@ export const POIS: POI[] = [
     id: 4,
     order: 4,
     title: "Colegio San Antonio de Padua",
-    lat: 42.466200399589134,
-    lng: -2.4509217094468063,
+    lat: 42.4662032472619,
+    lng: -2.450416178548043,
     description: "Institución educativa ubicada en la actual plaza de Alférez Provisional donde San Josemaría recibió parte de su educación.",
     audioSrc: "/assets/audio/4-san-antonio.mp3",
     imageSrc: "/assets/pois/san-antonio.jpg"
