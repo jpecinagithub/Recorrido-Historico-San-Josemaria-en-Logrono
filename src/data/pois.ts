@@ -86,7 +86,7 @@ export const POIS: POI[] = [
     title: "El puente de Hierro",
     lat: 42.46840556255151,
     lng: -2.4468010520953327,
-    description: "Puente histórico sobre el río Ebro, construido en hierro. Símbolo de la modernización de Logroño a principios del siglo XX.",
+    description: "Puente histórico sobre el rio Ebro, inaugurado el 18 de diciembre de 1882, fiesta de la Virgen de la Esperanza.",
     audioSrc: "/assets/audio/8-puente-hierro.mp3",
     imageSrc: "/assets/pois/puente-hierro.jpg"
   },
