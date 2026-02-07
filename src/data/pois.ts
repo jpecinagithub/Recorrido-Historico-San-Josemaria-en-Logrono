@@ -104,7 +104,7 @@ export const POIS: POI[] = [
     id: 10,
     order: 10,
     title: "La Concatedral de La Redonda",
-    lat: 42.46672739573979,
+    lat: 42.46657234409308,
     lng: -2.4450058130298826,
     description: "Concatedral de Santa María de la Redonda, símbolo arquitectónico de Logroño.",
     audioSrc: "/assets/audio/10-concatedral.mp3",
