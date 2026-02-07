@@ -127,18 +127,18 @@ export const ALBUM_PHOTOS: AlbumPhoto[] = [
     year: "1922"
   },
   {
-    id: "img-11",
-    src: "/assets/album/foto2.jpg",
-    title: "El joven sacerdote",
-    description: "Josemaría Escrivá como sacerdote joven, tras su ordenación el 28 de marzo de 1925 en Zaragoza.",
-    year: "1925"
-  },
-  {
     id: "img-32",
     src: "/assets/album/seminario-1925.jpg",
     title: "Josemaría en el Seminario (1922)",
     description: "Josemaría Escrivá junto a compañeros del Seminario de San Carlos en Zaragoza.",
     year: "1922"
+  },
+  {
+    id: "img-11",
+    src: "/assets/album/foto2.jpg",
+    title: "El joven sacerdote",
+    description: "Josemaría Escrivá como sacerdote joven, tras su ordenación el 28 de marzo de 1925 en Zaragoza.",
+    year: "1925"
   },
   {
     id: "img-29",
@@ -176,13 +176,6 @@ export const ALBUM_PHOTOS: AlbumPhoto[] = [
     year: "1975"
   },
   {
-    id: "img-14",
-    src: "/assets/album/foto1.jpg",
-    title: "Placa conmemorativa",
-    description: "Placa en Logroño que recuerda el lugar donde Josemaría vio las huellas de un carmelita descalzo en la nieve, momento decisivo en su vocación sacerdotal.",
-    year: "2007"
-  },
-  {
     id: "img-15",
     src: "/assets/album/foto21.jpg",
     title: "Canonización en Roma",
@@ -195,6 +188,13 @@ export const ALBUM_PHOTOS: AlbumPhoto[] = [
     title: "Tapiz de la canonización",
     description: "El tapiz con la imagen de San Josemaría colgado en la fachada de la Basílica de San Pedro durante su ceremonia de canonización.",
     year: "2002"
+  },
+  {
+    id: "img-14",
+    src: "/assets/album/foto1.jpg",
+    title: "Placa conmemorativa",
+    description: "Placa en Logroño que recuerda el lugar donde Josemaría vio las huellas de un carmelita descalzo en la nieve, momento decisivo en su vocación sacerdotal.",
+    year: "2007"
   },
   {
     id: "img-31",
