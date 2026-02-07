@@ -73,7 +73,7 @@ export const ALBUM_PHOTOS: AlbumPhoto[] = [
   {
     id: "img-08",
     src: "/assets/album/foto18.webp",
-    title: "Calle Sagasta",
+    title: "Calle Portales",
     description: "La emblemática Calle Portales de Logroño, centro neurálgico del comercio y la vida social de la ciudad en tiempos de la familia Escrivá.",
     year: "1919"
   },
@@ -180,13 +180,13 @@ export const ALBUM_PHOTOS: AlbumPhoto[] = [
     src: "/assets/album/foto1.jpg",
     title: "Placa conmemorativa",
     description: "Placa en Logroño que recuerda el lugar donde Josemaría vio las huellas de un carmelita descalzo en la nieve, momento decisivo en su vocación sacerdotal.",
-    year: "2002"
+    year: "2007"
   },
   {
     id: "img-15",
     src: "/assets/album/foto21.jpg",
     title: "Canonización en Roma",
-    description: "La Plaza de San Pedro repleta de fieles durante la canonización de San Josemaría el 6 de octubre de 2002, presidida por el Papa Juan Pablo II.",
+    description: "La Plaza de San Pedro repleta de fieles durante la canonización de San Josemaría el 6 de octubre de 2002, presidida por el Papa San Juan Pablo II.",
     year: "2002"
   },
   {
