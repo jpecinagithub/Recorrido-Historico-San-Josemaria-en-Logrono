@@ -133,3 +133,32 @@
     display: flex;
   }
 }
+
+/* Leaflet / OpenStreetMap */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+}
+
+.poi-marker {
+  width: 32px;
+  height: 32px;
+  border-radius: 9999px;
+  background: #8B5A2B;
+  border: 3px solid #ffffff;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.poi-marker.selected {
+  background: #B8860B;
+}
+
+.poi-marker > span {
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 14px;
+  line-height: 1;
+}

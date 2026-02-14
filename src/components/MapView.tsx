@@ -1,138 +1,95 @@
-import { useCallback, useState } from 'react';
-import { GoogleMap, useJsApiLoader, Marker, Polyline } from '@react-google-maps/api';
+import { useEffect, useMemo } from 'react';
+import L from 'leaflet';
+import { MapContainer, Marker, Polyline, TileLayer, useMap } from 'react-leaflet';
+import type { LatLngExpression } from 'leaflet';
 import { POIS, MAP_CENTER, MAP_ZOOM, type POI } from '@/data/pois';
-import { Loader2 } from 'lucide-react';
 
 interface MapViewProps {
   selectedPoi: POI | null;
   onPoiSelect: (poi: POI) => void;
 }
 
-const mapContainerStyle = {
+const mapContainerStyle: React.CSSProperties = {
   width: '100%',
   height: '100%',
 };
 
-const mapOptions: google.maps.MapOptions = {
-  disableDefaultUI: true,
-  zoomControl: true,
-  mapTypeControl: false,
-  streetViewControl: false,
-  fullscreenControl: false,
-  styles: [
-    {
-      featureType: 'poi',
-      elementType: 'labels',
-      stylers: [{ visibility: 'off' }],
-    },
-    {
-      featureType: 'transit',
-      stylers: [{ visibility: 'off' }],
-    },
-  ],
+const poiIcon = (order: number, isSelected: boolean) =>
+  L.divIcon({
+    className: '',
+    html: `<div class="poi-marker${isSelected ? ' selected' : ''}"><span>${order}</span></div>`,
+    iconSize: [32, 32],
+    iconAnchor: [16, 32],
+  });
+
+const FitToPois = ({ points }: { points: LatLngExpression[] }) => {
+  const map = useMap();
+
+  useEffect(() => {
+    if (points.length === 0) return;
+    const bounds = L.latLngBounds(points);
+    map.fitBounds(bounds, { padding: [60, 60] });
+  }, [map, points]);
+
+  return null;
+};
+
+const PanToSelected = ({ poi }: { poi: POI | null }) => {
+  const map = useMap();
+
+  useEffect(() => {
+    if (!poi) return;
+    map.panTo([poi.lat, poi.lng], { animate: true });
+  }, [map, poi]);
+
+  return null;
 };
 
 const MapView = ({ selectedPoi, onPoiSelect }: MapViewProps) => {
-  const [map, setMap] = useState<google.maps.Map | null>(null);
-  
-  const { isLoaded, loadError } = useJsApiLoader({
-    googleMapsApiKey: 'AIzaSyCHhW6RGwsJKWzIukbHD-cn0ZRiq36A638',
-  });
+  // Avoid mutating POIS with .sort() in render.
+  const sortedPois = useMemo(() => [...POIS].sort((a, b) => a.order - b.order), []);
 
-  const onLoad = useCallback((map: google.maps.Map) => {
-    const bounds = new google.maps.LatLngBounds();
-    POIS.forEach((poi) => {
-      bounds.extend({ lat: poi.lat, lng: poi.lng });
-    });
-    map.fitBounds(bounds, 60);
-    setMap(map);
-  }, []);
-
-  const onUnmount = useCallback(() => {
-    setMap(null);
-  }, []);
-
-  const handleMarkerClick = (poi: POI) => {
-    onPoiSelect(poi);
-    if (map) {
-      map.panTo({ lat: poi.lat, lng: poi.lng });
-    }
-  };
-
-  // Create polyline path
-  const routePath = POIS.sort((a, b) => a.order - b.order).map((poi) => ({
-    lat: poi.lat,
-    lng: poi.lng,
-  }));
-
-  if (loadError) {
-    return (
-      <div className="flex items-center justify-center h-full bg-muted">
-        <div className="text-center p-4">
-          <p className="text-destructive font-medium">Error al cargar el mapa</p>
-          <p className="text-sm text-muted-foreground mt-1">
-            Por favor, recarga la página
-          </p>
-        </div>
-      </div>
-    );
-  }
-
-  if (!isLoaded) {
-    return (
-      <div className="flex items-center justify-center h-full bg-muted">
-        <div className="text-center">
-          <Loader2 className="h-8 w-8 animate-spin text-primary mx-auto mb-2" />
-          <p className="text-muted-foreground">Cargando mapa...</p>
-        </div>
-      </div>
-    );
-  }
+  const routePath = useMemo(
+    () => sortedPois.map((poi) => [poi.lat, poi.lng] as LatLngExpression),
+    [sortedPois]
+  );
 
   return (
-    <GoogleMap
-      mapContainerStyle={mapContainerStyle}
-      center={MAP_CENTER}
+    <MapContainer
+      style={mapContainerStyle}
+      center={[MAP_CENTER.lat, MAP_CENTER.lng]}
       zoom={MAP_ZOOM}
-      onLoad={onLoad}
-      onUnmount={onUnmount}
-      options={mapOptions}
+      zoomControl
+      attributionControl
     >
-      {/* Route polyline */}
+      <TileLayer
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      />
+
+      <FitToPois points={routePath} />
+      <PanToSelected poi={selectedPoi} />
+
       <Polyline
-        path={routePath}
-        options={{
-          strokeColor: '#8B5A2B',
-          strokeOpacity: 0.8,
-          strokeWeight: 4,
-          geodesic: true,
+        positions={routePath}
+        pathOptions={{
+          color: '#8B5A2B',
+          opacity: 0.8,
+          weight: 4,
         }}
       />
 
-      {/* POI markers */}
-      {POIS.map((poi) => (
+      {sortedPois.map((poi) => (
         <Marker
           key={poi.id}
-          position={{ lat: poi.lat, lng: poi.lng }}
-          onClick={() => handleMarkerClick(poi)}
-          label={{
-            text: poi.order.toString(),
-            color: 'white',
-            fontSize: '14px',
-            fontWeight: 'bold',
-          }}
-          icon={{
-            path: google.maps.SymbolPath.CIRCLE,
-            scale: 18,
-            fillColor: selectedPoi?.id === poi.id ? '#B8860B' : '#8B5A2B',
-            fillOpacity: 1,
-            strokeColor: 'white',
-            strokeWeight: 3,
-          }}
+          position={[poi.lat, poi.lng]}
+          icon={poiIcon(poi.order, selectedPoi?.id === poi.id)}
+          eventHandlers={{ click: () => onPoiSelect(poi) }}
         />
       ))}
-    </GoogleMap>
+    </MapContainer>
   );
 };
 
 export default MapView;
+

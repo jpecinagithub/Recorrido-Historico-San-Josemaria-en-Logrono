@@ -13,7 +13,8 @@ interface PoiDrawerProps {
 const PoiDrawer = ({ poi, onClose }: PoiDrawerProps) => {
   const openInMaps = () => {
     if (!poi) return;
-    const url = `https://www.google.com/maps/dir/?api=1&destination=${poi.lat},${poi.lng}`;
+    // OpenStreetMap (no API key). Users can choose directions from there.
+    const url = `https://www.openstreetmap.org/?mlat=${poi.lat}&mlon=${poi.lng}#map=18/${poi.lat}/${poi.lng}`;
     window.open(url, '_blank');
   };
 
@@ -99,7 +100,7 @@ const PoiDrawer = ({ poi, onClose }: PoiDrawerProps) => {
                   className="w-full gap-2 h-11 md:h-12 rounded-xl text-sm md:text-base"
                 >
                   <Navigation className="h-4 w-4" />
-                  Cómo llegar
+                  Ver en OpenStreetMap
                 </Button>
               </div>
             </div>
