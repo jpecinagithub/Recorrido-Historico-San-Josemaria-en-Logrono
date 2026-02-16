@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight, Calendar } from 'lucide-react';
+import { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { getAssetPath } from '@/lib/assets';
 import type { AlbumPhoto } from '@/data/album';
@@ -21,6 +22,56 @@ const PhotoModal = ({
   hasPrevious = false,
   hasNext = false 
 }: PhotoModalProps) => {
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const previousFocusRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    if (!photo) return;
+
+    previousFocusRef.current = document.activeElement as HTMLElement | null;
+
+    const focusDialog = window.setTimeout(() => {
+      closeButtonRef.current?.focus();
+    }, 0);
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        onClose();
+        return;
+      }
+
+      if (event.key !== 'Tab' || !dialogRef.current) return;
+
+      const focusable = dialogRef.current.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])'
+      );
+
+      if (focusable.length === 0) return;
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      const active = document.activeElement as HTMLElement | null;
+
+      if (event.shiftKey && active === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && active === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.clearTimeout(focusDialog);
+      document.removeEventListener('keydown', handleKeyDown);
+      previousFocusRef.current?.focus();
+    };
+  }, [photo, onClose]);
+
   return (
     <AnimatePresence>
       {photo && (
@@ -29,10 +80,12 @@ const PhotoModal = ({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
+          role="presentation"
           onClick={onClose}
         >
           {/* Close button */}
           <Button
+            ref={closeButtonRef}
             variant="ghost"
             size="icon"
             onClick={onClose}
@@ -76,11 +129,15 @@ const PhotoModal = ({
           
           {/* Content */}
           <motion.div
+            ref={dialogRef}
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
             onClick={(e) => e.stopPropagation()}
             className="max-w-4xl w-full bg-card rounded-2xl overflow-hidden shadow-2xl"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="photo-modal-title"
           >
             {/* Image */}
             <div className="relative bg-muted flex items-center justify-center min-h-[200px] max-h-[60vh]">
@@ -94,7 +151,7 @@ const PhotoModal = ({
             {/* Info */}
             <div className="p-6">
               <div className="flex items-start justify-between gap-4 mb-3">
-                <h2 className="text-xl font-bold text-foreground">
+                <h2 id="photo-modal-title" className="text-xl font-bold text-foreground">
                   {photo.title}
                 </h2>
                 {photo.year && (

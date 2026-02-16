@@ -12,10 +12,23 @@ const Index = () => {
   const [showList, setShowList] = useState(false);
 
   useEffect(() => {
-    const isMobile = window.matchMedia('(max-width: 767px)').matches;
-    if (isMobile) {
-      setShowList(true);
-    }
+    const mediaQuery = window.matchMedia('(max-width: 767px)');
+
+    const syncViewMode = (isMobile: boolean) => {
+      setShowList(isMobile);
+    };
+
+    syncViewMode(mediaQuery.matches);
+
+    const handleChange = (event: MediaQueryListEvent) => {
+      syncViewMode(event.matches);
+    };
+
+    mediaQuery.addEventListener('change', handleChange);
+
+    return () => {
+      mediaQuery.removeEventListener('change', handleChange);
+    };
   }, []);
 
   const handlePoiSelect = (poi: POI) => {

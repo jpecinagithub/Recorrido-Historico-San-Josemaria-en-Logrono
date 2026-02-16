@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, MapPin } from 'lucide-react';
+import { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { getAssetPath } from '@/lib/assets';
 import AudioPlayer from './AudioPlayer';
@@ -11,6 +12,56 @@ interface PoiDrawerProps {
 }
 
 const PoiDrawer = ({ poi, onClose }: PoiDrawerProps) => {
+  const drawerRef = useRef<HTMLDivElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const previousFocusRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    if (!poi) return;
+
+    previousFocusRef.current = document.activeElement as HTMLElement | null;
+
+    const focusDrawer = window.setTimeout(() => {
+      closeButtonRef.current?.focus();
+    }, 0);
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        onClose();
+        return;
+      }
+
+      if (event.key !== 'Tab' || !drawerRef.current) return;
+
+      const focusable = drawerRef.current.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])'
+      );
+
+      if (focusable.length === 0) return;
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      const active = document.activeElement as HTMLElement | null;
+
+      if (event.shiftKey && active === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && active === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.clearTimeout(focusDrawer);
+      document.removeEventListener('keydown', handleKeyDown);
+      previousFocusRef.current?.focus();
+    };
+  }, [poi, onClose]);
+
   return (
     <AnimatePresence>
       {poi && (
@@ -22,15 +73,20 @@ const PoiDrawer = ({ poi, onClose }: PoiDrawerProps) => {
             exit={{ opacity: 0 }}
             onClick={onClose}
             className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[1300] md:hidden"
+            role="presentation"
           />
           
           {/* Drawer */}
           <motion.div
+            ref={drawerRef}
             initial={{ y: '100%' }}
             animate={{ y: 0 }}
             exit={{ y: '100%' }}
             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
             className="fixed bottom-0 left-0 right-0 z-[1350] bg-card rounded-t-3xl shadow-2xl max-h-[80dvh] overflow-hidden md:fixed md:right-4 md:bottom-4 md:left-auto md:top-auto md:w-96 md:max-w-[calc(100vw-2rem)] md:rounded-2xl md:max-h-[calc(100dvh-6rem)]"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="poi-drawer-title"
           >
             {/* Handle bar (mobile) */}
             <div className="flex justify-center pt-3 pb-1 md:hidden">
@@ -39,6 +95,7 @@ const PoiDrawer = ({ poi, onClose }: PoiDrawerProps) => {
             
             {/* Close button */}
             <Button
+              ref={closeButtonRef}
               variant="ghost"
               size="icon"
               onClick={onClose}
@@ -71,7 +128,7 @@ const PoiDrawer = ({ poi, onClose }: PoiDrawerProps) => {
                 <div>
                   <div className="flex items-start gap-2 mb-2">
                     <MapPin className="h-4 w-4 md:h-5 md:w-5 text-primary shrink-0 mt-0.5" />
-                    <h2 className="text-lg md:text-xl font-bold text-foreground leading-tight">
+                    <h2 id="poi-drawer-title" className="text-lg md:text-xl font-bold text-foreground leading-tight">
                       {poi.title}
                     </h2>
                   </div>

@@ -32,7 +32,7 @@ export const ALBUM_PHOTOS: AlbumPhoto[] = [
     id: "img-28",
     src: "/assets/album/antonio-garrigosa-tienda.webp",
     title: "Tienda de Antonio Garrigosa",
-    description: "La tienda de tejidos 'La gran ciudad de Londre'. El cartel anunciaba 'Amabilidad, Baratura y Buen Gusto'.",
+    description: "La tienda de tejidos 'La gran ciudad de Londres'. El cartel anunciaba 'Amabilidad, Baratura y Buen Gusto'.",
     year: "1915"
   },
   {

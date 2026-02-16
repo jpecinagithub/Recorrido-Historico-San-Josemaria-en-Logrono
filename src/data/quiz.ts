@@ -101,9 +101,9 @@ export const QUIZ_QUESTIONS_POOL: QuizQuestion[] = [
   {
     id: 14,
     question: "¿En qué calle de Logroño vivió la familia Escrivá?",
-    options: ["Calle Portales", "Calle Sagasta", "Calle Laurel", "Calle San Antón"],
+    options: ["Calle Portales", "Calle Canalejas", "Calle Laurel", "Calle San Antón"],
     correctAnswer: 1,
-    explanation: "La familia Escrivá vivió en la Calle Canalejas, muy cerca del centro de Logroño."
+    explanation: "La familia Escrivá vivió en la Calle Canalejas, coincidiendo con la etapa de San Josemaría en el Seminario Conciliar de Logroño."
   },
   {
     id: 15,
@@ -209,13 +209,6 @@ export const QUIZ_QUESTIONS_POOL: QuizQuestion[] = [
     options: ["1923", "1925", "1928", "1930"],
     correctAnswer: 1,
     explanation: "Fue ordenado sacerdote el 28 de marzo de 1925 en Zaragoza."
-  },
-  {
-    id: 30,
-    question: "¿Qué festividad se celebra el día del nacimiento de San Josemaría (9 de enero)?",
-    options: ["Epifanía", "Bautismo del Señor", "Su fiesta litúrgica", "No hay festividad ese día"],
-    correctAnswer: 2,
-    explanation: "El 9 de enero es la fiesta litúrgica de San Josemaría en el calendario de la Iglesia."
   },
   {
     id: 31,
@@ -362,6 +355,13 @@ export const QUIZ_QUESTIONS_POOL: QuizQuestion[] = [
 export const QUIZ_QUESTIONS_COUNT = 10;
 
 export function getRandomQuestions(count: number = QUIZ_QUESTIONS_COUNT): QuizQuestion[] {
-  const shuffled = [...QUIZ_QUESTIONS_POOL].sort(() => Math.random() - 0.5);
+  const shuffled = [...QUIZ_QUESTIONS_POOL];
+
+  // Fisher-Yates shuffle for unbiased randomization.
+  for (let i = shuffled.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+
   return shuffled.slice(0, count);
 }

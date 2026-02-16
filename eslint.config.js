@@ -12,7 +12,7 @@ export default [
   js.configs.recommended,
   ...tseslint.configs.recommended,
   {
-    files: ["**/*.{ts,tsx}"],
+    files: ["src/**/*.{ts,tsx}"],
     plugins: {
       react: pluginReact,
       "react-hooks": reactHooks,
@@ -20,6 +20,10 @@ export default [
     },
     languageOptions: {
       ...pluginReact.configs.recommended.languageOptions,
+      parserOptions: {
+        project: ["./tsconfig.app.json"],
+        tsconfigRootDir: import.meta.dirname,
+      },
       globals: {
         ...globals.browser,
       },
@@ -31,10 +35,10 @@ export default [
       "react/react-in-jsx-scope": "off",
       "react/prop-types": "off",
       "react/no-unknown-property": "off",
-      "@typescript-eslint/no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": "warn",
       "@typescript-eslint/ban-types": "off",
       "@typescript-eslint/no-unsafe-member-access": "off",
-      "@typescript-eslint/no-unsafe-assignment": "off",
+      "@typescript-eslint/no-unsafe-assignment": "warn",
       "@typescript-eslint/no-unsafe-return": "off",
       "@typescript-eslint/no-empty-object-type": "off",
       "@typescript-eslint/no-require-imports": "off",
