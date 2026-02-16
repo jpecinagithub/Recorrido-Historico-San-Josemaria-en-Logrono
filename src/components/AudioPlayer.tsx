@@ -8,9 +8,10 @@ interface AudioPlayerProps {
   src: string;
   title?: string;
   className?: string;
+  autoPlay?: boolean;
 }
 
-const AudioPlayer = ({ src, title, className }: AudioPlayerProps) => {
+const AudioPlayer = ({ src, title, className, autoPlay = false }: AudioPlayerProps) => {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
@@ -24,15 +25,21 @@ const AudioPlayer = ({ src, title, className }: AudioPlayerProps) => {
     const handleTimeUpdate = () => setCurrentTime(audio.currentTime);
     const handleLoadedMetadata = () => setDuration(audio.duration);
     const handleEnded = () => setIsPlaying(false);
+    const handlePlay = () => setIsPlaying(true);
+    const handlePause = () => setIsPlaying(false);
 
     audio.addEventListener('timeupdate', handleTimeUpdate);
     audio.addEventListener('loadedmetadata', handleLoadedMetadata);
     audio.addEventListener('ended', handleEnded);
+    audio.addEventListener('play', handlePlay);
+    audio.addEventListener('pause', handlePause);
 
     return () => {
       audio.removeEventListener('timeupdate', handleTimeUpdate);
       audio.removeEventListener('loadedmetadata', handleLoadedMetadata);
       audio.removeEventListener('ended', handleEnded);
+      audio.removeEventListener('play', handlePlay);
+      audio.removeEventListener('pause', handlePause);
     };
   }, [src]);
 
@@ -45,15 +52,43 @@ const AudioPlayer = ({ src, title, className }: AudioPlayerProps) => {
     }
   }, [src]);
 
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio || !autoPlay) return;
+
+    const startPlayback = async () => {
+      try {
+        await audio.play();
+        setIsPlaying(true);
+      } catch {
+        setIsPlaying(false);
+      }
+    };
+
+    void startPlayback();
+  }, [src, autoPlay]);
+
   const togglePlay = () => {
-    if (!audioRef.current) return;
-    
-    if (isPlaying) {
-      audioRef.current.pause();
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    if (!audio.paused) {
+      audio.pause();
     } else {
-      audioRef.current.play();
+      void audio.play()
+        .then(() => setIsPlaying(true))
+        .catch(() => setIsPlaying(false));
     }
-    setIsPlaying(!isPlaying);
+  };
+
+  const stopAudio = () => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    audio.pause();
+    audio.currentTime = 0;
+    setCurrentTime(0);
+    setIsPlaying(false);
   };
 
   const toggleMute = () => {
@@ -129,6 +164,14 @@ const AudioPlayer = ({ src, title, className }: AudioPlayerProps) => {
           )}
         </Button>
       </div>
+
+      <Button
+        variant="outline"
+        onClick={stopAudio}
+        className="mt-3 w-full"
+      >
+        Parar audio
+      </Button>
     </div>
   );
 };

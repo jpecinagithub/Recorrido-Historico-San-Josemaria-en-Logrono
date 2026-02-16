@@ -91,6 +91,7 @@ const PoiDrawer = ({ poi, onClose }: PoiDrawerProps) => {
                 <AudioPlayer 
                   src={getAssetPath(poi.audioSrc)} 
                   title="Audio guía"
+                  autoPlay
                 />
                 
                 {/* Navigation button */}
