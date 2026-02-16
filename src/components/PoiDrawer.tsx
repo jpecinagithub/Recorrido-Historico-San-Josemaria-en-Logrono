@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, MapPin, Navigation, Sparkles } from 'lucide-react';
+import { X, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { getAssetPath } from '@/lib/assets';
 import AudioPlayer from './AudioPlayer';
@@ -11,13 +11,6 @@ interface PoiDrawerProps {
 }
 
 const PoiDrawer = ({ poi, onClose }: PoiDrawerProps) => {
-  const openInMaps = () => {
-    if (!poi) return;
-    // OpenStreetMap (no API key). Users can choose directions from there.
-    const url = `https://www.openstreetmap.org/?mlat=${poi.lat}&mlon=${poi.lng}#map=18/${poi.lat}/${poi.lng}`;
-    window.open(url, '_blank');
-  };
-
   return (
     <AnimatePresence>
       {poi && (
@@ -96,16 +89,6 @@ const PoiDrawer = ({ poi, onClose }: PoiDrawerProps) => {
                     {poi.description}
                   </p>
                 </div>
-                
-                {/* Navigation button */}
-                <Button
-                  onClick={openInMaps}
-                  variant="outline"
-                  className="w-full gap-2 h-11 md:h-12 rounded-xl text-sm md:text-base"
-                >
-                  <Navigation className="h-4 w-4" />
-                  Ver en OpenStreetMap
-                </Button>
               </div>
             </div>
           </motion.div>
