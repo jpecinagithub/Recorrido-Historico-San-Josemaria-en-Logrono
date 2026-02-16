@@ -28,7 +28,7 @@ const PoiDrawer = ({ poi, onClose }: PoiDrawerProps) => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 md:hidden"
+            className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[1300] md:hidden"
           />
           
           {/* Drawer */}
@@ -37,7 +37,7 @@ const PoiDrawer = ({ poi, onClose }: PoiDrawerProps) => {
             animate={{ y: 0 }}
             exit={{ y: '100%' }}
             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-            className="fixed bottom-0 left-0 right-0 z-50 bg-card rounded-t-3xl shadow-2xl max-h-[80dvh] overflow-hidden md:fixed md:right-4 md:bottom-4 md:left-auto md:top-auto md:w-96 md:max-w-[calc(100vw-2rem)] md:rounded-2xl md:max-h-[calc(100dvh-6rem)]"
+            className="fixed bottom-0 left-0 right-0 z-[1350] bg-card rounded-t-3xl shadow-2xl max-h-[80dvh] overflow-hidden md:fixed md:right-4 md:bottom-4 md:left-auto md:top-auto md:w-96 md:max-w-[calc(100vw-2rem)] md:rounded-2xl md:max-h-[calc(100dvh-6rem)]"
           >
             {/* Handle bar (mobile) */}
             <div className="flex justify-center pt-3 pb-1 md:hidden">
@@ -58,7 +58,7 @@ const PoiDrawer = ({ poi, onClose }: PoiDrawerProps) => {
             {/* Content */}
             <div className="overflow-y-auto max-h-[calc(80dvh-20px)] md:max-h-[calc(100dvh-8rem)] scrollbar-hide">
               {/* Image */}
-              <div className="relative h-40 sm:h-48 md:h-56">
+              <div className="relative z-0 h-40 sm:h-48 md:h-56">
                 <img
                   src={poi.imageSrc ? getAssetPath(poi.imageSrc) : getAssetPath('/placeholder.svg')}
                   alt={poi.title}
@@ -74,7 +74,7 @@ const PoiDrawer = ({ poi, onClose }: PoiDrawerProps) => {
               </div>
               
               {/* Text content */}
-              <div className="p-4 md:p-5 space-y-3 md:space-y-4 safe-area-bottom">
+              <div className="relative z-10 bg-card p-4 md:p-5 space-y-3 md:space-y-4 safe-area-bottom">
                 <div>
                   <div className="flex items-start gap-2 mb-2">
                     <MapPin className="h-4 w-4 md:h-5 md:w-5 text-primary shrink-0 mt-0.5" />
@@ -82,17 +82,20 @@ const PoiDrawer = ({ poi, onClose }: PoiDrawerProps) => {
                       {poi.title}
                     </h2>
                   </div>
-                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
-                    {poi.description}
-                  </p>
                 </div>
-                
-                {/* Audio player */}
+
+                {/* Audio player (visible immediately on mobile) */}
                 <AudioPlayer 
                   src={getAssetPath(poi.audioSrc)} 
                   title="Audio guía"
                   autoPlay
                 />
+
+                <div>
+                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                    {poi.description}
+                  </p>
+                </div>
                 
                 {/* Navigation button */}
                 <Button

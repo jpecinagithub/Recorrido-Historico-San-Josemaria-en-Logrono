@@ -50,6 +50,24 @@ npm run dev
 - Click on "New codespace" to launch a new Codespace environment.
 - Edit files directly within the Codespace and commit and push your changes once you're done.
 
+## Project improvements
+
+During the review of the project, the following improvements have been made:
+
+### Unit Tests
+
+- Added unit tests for the `Header` component to ensure its correctness and prevent future regressions.
+- The testing framework is set up with `vitest` and `@testing-library/react`. You can run the tests using the `npm test` command.
+
+### Accessibility
+
+- Improved the accessibility of the image gallery by using more descriptive alt texts for the images, which benefits users with screen readers.
+
+### Performance Analysis
+
+- Added a script to analyze the bundle size and composition. This can help identify large dependencies and optimize the application's performance.
+- To run the analysis, use the command `npm run analyze`. This will build the application and open a new tab in your browser with the bundle analysis report.
+
 ## What technologies are used for this project?
 
 This project is built with:

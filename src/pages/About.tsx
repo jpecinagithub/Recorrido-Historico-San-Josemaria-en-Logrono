@@ -23,7 +23,7 @@ const About = () => {
             </p>
             <p className="text-muted-foreground leading-relaxed">
               San Josemaría vivió una etapa fundamental de su juventud 
-              en Logroño, donde experimentó los primeros "barruntos" de su vocación.
+              en Logroño, donde experimentó los primeros &quot;barruntos&quot; de su vocación.
             </p>
           </div>
         </div>

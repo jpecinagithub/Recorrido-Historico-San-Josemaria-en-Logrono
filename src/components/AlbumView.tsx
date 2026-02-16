@@ -68,7 +68,7 @@ const AlbumView = () => {
           >
             <img
               src={getAssetPath(photo.src)}
-              alt={photo.title}
+              alt={photo.description}
               loading="lazy"
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             />

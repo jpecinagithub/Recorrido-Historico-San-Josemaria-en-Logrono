@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { List, Map as MapIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import MapView from '@/components/MapView';
@@ -10,6 +10,13 @@ import { cn } from '@/lib/utils';
 const Index = () => {
   const [selectedPoi, setSelectedPoi] = useState<POI | null>(null);
   const [showList, setShowList] = useState(false);
+
+  useEffect(() => {
+    const isMobile = window.matchMedia('(max-width: 767px)').matches;
+    if (isMobile) {
+      setShowList(true);
+    }
+  }, []);
 
   const handlePoiSelect = (poi: POI) => {
     setSelectedPoi(poi);
@@ -45,7 +52,7 @@ const Index = () => {
       
       {/* List (mobile overlay) */}
       <div className={cn(
-        "fixed inset-0 top-16 bg-background overflow-y-auto transition-transform duration-300 z-30 md:hidden scrollbar-hide",
+        "fixed inset-0 top-16 bg-background overflow-y-auto transition-transform duration-300 z-[1200] md:hidden scrollbar-hide",
         showList ? "translate-x-0" : "translate-x-full"
       )}>
         <PoiList 
@@ -58,7 +65,7 @@ const Index = () => {
       <Button
         onClick={() => setShowList(!showList)}
         size="icon"
-        className="fixed bottom-6 right-4 z-40 h-14 w-14 rounded-full shadow-xl bg-gradient-to-br from-primary to-accent hover:opacity-90 md:hidden"
+        className="fixed bottom-6 right-4 z-[1250] h-14 w-14 rounded-full shadow-xl bg-gradient-to-br from-primary to-accent hover:opacity-90 md:hidden"
         aria-label={showList ? 'Ver mapa' : 'Ver lista'}
       >
         {showList ? (
