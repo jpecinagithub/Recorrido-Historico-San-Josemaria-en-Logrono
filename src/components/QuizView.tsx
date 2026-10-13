@@ -17,6 +17,10 @@ const QuizView = () => {
   const [score, setScore] = useState(0);
   const [answers, setAnswers] = useState<boolean[]>([]);
   const [questions, setQuestions] = useState<QuizQuestion[]>([]);
+  // True solo si esta partida superó estrictamente el récord anterior.
+  // (No basta con comparar score === quizBestScore en el render, porque
+  // al empatar el récord el store ya contiene ese valor.)
+  const [isNewRecord, setIsNewRecord] = useState(false);
   
   const { quizBestScore, setQuizBestScore } = useAppStore();
 
@@ -33,6 +37,7 @@ const QuizView = () => {
     setIsAnswered(false);
     setScore(0);
     setAnswers([]);
+    setIsNewRecord(false);
   };
 
   const handleAnswer = (answerIndex: number) => {
@@ -62,6 +67,9 @@ const QuizView = () => {
     setQuizState('result');
     if (score > quizBestScore) {
       setQuizBestScore(score);
+      setIsNewRecord(true);
+    } else {
+      setIsNewRecord(false);
     }
   };
 
@@ -171,7 +179,7 @@ const QuizView = () => {
             </div>
           </div>
           
-          {score > quizBestScore - 1 && score === quizBestScore && quizBestScore > 0 && (
+          {isNewRecord && (
             <motion.p 
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}

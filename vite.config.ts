@@ -13,9 +13,13 @@ import { visualizer } from "rollup-plugin-visualizer";
  */
 const repoName = "Recorrido-Historico-San-Josemaria-en-Logrono";
 
+// Base path de los assets:
+// - GitHub Pages (por defecto): /<repoName>/  (https://jpecinagithub.github.io/<repoName>/)
+// - Vercel (dominio raíz): definir la variable de entorno BASE_PATH=/ en el proyecto.
+const base = process.env.BASE_PATH ?? `/${repoName}/`;
+
 export default defineConfig(({ mode }) => ({
-  // GitHub Pages necesita el base con el nombre del repo
-  base: `/${repoName}/`,
+  base,
 
   server: {
     host: "::",
@@ -44,9 +48,10 @@ export default defineConfig(({ mode }) => ({
         start_url: "./#/",
         scope: "./",
         display: "standalone",
+        lang: "es",
 
-        theme_color: "#0B2F6A",
-        background_color: "#0B2F6A",
+        theme_color: "#8B5A2B",
+        background_color: "#8B5A2B",
 
         // IMPORTANTÍSIMO: rutas relativas (sin /repo/)
         icons: [
@@ -64,7 +69,8 @@ export default defineConfig(({ mode }) => ({
       workbox: {
         // ✅ clave: NO precachear audios grandes (wav/mp3)
         // Esto evita el error de 2MB de Workbox.
-        globPatterns: ["**/*.{js,css,html,ico,png,svg,webp,woff2}"],
+        // Se incluyen jpg/jpeg para que el álbum funcione offline.
+        globPatterns: ["**/*.{js,css,html,ico,jpg,jpeg,png,svg,webp,woff2}"],
 
         // ✅ opcional: cachea audios cuando el usuario los reproduce (runtime)
         runtimeCaching: [
